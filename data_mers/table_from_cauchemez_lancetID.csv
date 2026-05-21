@@ -1,0 +1,112 @@
+﻿Cluster ID,Date reported,Symptom onset date,age,sex,Country identified,Nationality,Sub-national,Location where infection is believed to have occurred,Exported case,Country where treated,Severity,Outcome,Recent travel history,Duration of travel,Animal Exposure,HCW,Co-morbid conditions,Source
+1,20-09-2012,13-06-2012,60,m,KSA,KSA,Bisha,Bisha,no,KSA,severe,fatal,no,---,NR,no,no,"14, 15"
+2,01-11-2012,05-10-2012,70,m,KSA,KSA,Riyadh,Riyadh,no,KSA,severe,fatal,no,---,NR,no,yes,"7, 8, 14"
+2,28-11-2012,24-10-2012,39,m,KSA,KSA,Riyadh,Riyadh,no,KSA,severe,fatal,no,---,NR,no,yes,"7, 8, 14"
+2,19-11-2012,04-11-2012,31,m,KSA,KSA,Riyadh,Riyadh,no,KSA,severe,recovered,no,---,NR,no,no,"7, 8, 14"
+3,04-11-2012,09-10-2012,49,m,KSA,KSA,Riyadh,Riyadh,no,KSA,severe,recovered,no,--,yes,no,yes,"1, 14, 17"
+4,30-11-2012,21-03-2012,25,m,Jordan,Jordan,Zarqa,Zarqa,no,Jordan,severe,fatal,no,--,no,yes,NR,6
+4,30-11-2012,02-04-2012,40,f,Jordan,Jordan,Zarqa,Zarqa,no,Jordan,severe,fatal,no,--,no,yes,NR,6
+5,22-09-2012,03-09-2012,49,m,UK,Qatar,"Doha, Qatar","Doha, Qatar",no,"Doha, UK",severe,in hospital,Saudi Arabia,NR,NR,no,NR,"2, 9, 14"
+6,01-11-2012,01-10-2012,NR,m,Germany,Qatar,"Doha, Qatar","Doha, Qatar",no,Germany,severe,recovered,yes,Qatar,yes,no,NR,"3, 14"
+7,11-02-2013,24-01-2013,60,m,UK,UK,Birmingham,Riyadh,yes,UK,severe,fatal,"Saudi Arabia, Pakistan",unknown,no,no,yes,10-14
+7,15-02-2013,05-02-2013,30,f,UK,UK,Birmingham,Birmingham,no,none,mild,recovered,no,--,no,no,no,10-14
+7,13-02-2013,06-02-2013,38,m,UK,UK,Birmingham,Birmingham,no,UK,severe,fatal,no,--,no,no,yes,10-14
+8,21-02-2013,NR,61,f,KSA,KSA,Riyadh,Riyadh,no,KSA,severe,fatal,no,--,NR,no,no,14
+9,07-03-2013,NR,65,m,KSA,KSA,Bur Qassim,Bur Qassim,no,KSA,severe,fatal,no,--,NR,no,no,14
+10,12-03-2013,24-02-2013,37,m,KSA,KSA,Riyadh,Riyadh,no,KSA,severe,fatal,no,--,NR,no,no,14
+10,23-03-2013,NR,NR,NR,KSA,KSA,NR,NR,no,KSA,mild,recovered,NR,--,NR,no,NR,14
+11,26-03-2013,NR,73,m,Germany,UAE,Abu Dhabi,Abu Dhabi,no,Germany,severe,fatal,NR,--,NR,no,NR,14
+12,19-06-2013,09-04-2013,58,m,KSA,NR,Al Hasa,Al Hasa,no,KSA,severe?,recovered,no,---,NR,no,NR,21
+12,19-06-2013,14-04-2013,59,m,KSA,NR,Al Hasa,Al Hasa,no,KSA,severe,fatal,no,---,NR,no,yes,21
+12,19-06-2013,15-04-2013,24,m,KSA,NR,Al Hasa,Al Hasa,no,KSA,severe,in hospital,no,---,NR,no,yes,21
+12,19-06-2013,16-04-2013,87,m,KSA,NR,Al Hasa,Al Hasa,no,KSA,severe,fatal,no,---,NR,no,yes,21
+12,19-06-2013,18-04-2013,77,m,KSA,NR,Al Hasa,Al Hasa,no,KSA,severe,fatal,no,---,NR,no,yes,21
+12,19-06-2013,19-04-2013,58,m,KSA,NR,Al Hasa,Al Hasa,no,KSA,severe,in hospital,no,---,NR,no,yes,21
+12,19-06-2013,19-04-2013,62,f,KSA,NR,Al Hasa,Al Hasa,no,KSA,severe,in hospital,no,---,NR,no,yes,21
+12,19-06-2013,19-04-2013,94,m,KSA,NR,Al Hasa,Al Hasa,no,KSA,severe,fatal,no,---,NR,no,NR,21
+12,19-06-2013,20-04-2013,56,m,KSA,NR,Al Hasa,Al Hasa,no,KSA,severe,fatal,no,---,NR,no,yes,21
+12,19-06-2013,22-04-2013,56,m,KSA,NR,Al Hasa,Al Hasa,no,KSA,severe,fatal,no,---,NR,no,yes,21
+12,19-06-2013,23-04-2013,50,m,KSA,NR,Al Hasa,Al Hasa,no,KSA,mild?,recovered,no,---,NR,no,NR,21
+12,19-06-2013,25-04-2013,52,f,KSA,NR,Al Hasa,Al Hasa,no,KSA,severe,fatal,no,---,NR,no,NR,21
+12,19-06-2013,27-04-2013,33,f,KSA,NR,Al Hasa,Al Hasa,no,KSA,severe,recovered,no,---,NR,no,NR,21
+12,19-06-2013,28-04-2013,81,f,KSA,NR,Al Hasa,Al Hasa,no,KSA,severe,fatal,no,---,NR,no,NR,21
+12,19-06-2013,30-04-2013,58,f,KSA,NR,Al Hasa,Al Hasa,no,KSA,mild,recovered,no,---,NR,no,yes,21
+12,19-06-2013,01-05-2013,48,m,KSA,NR,Al Hasa,Al Hasa,no,KSA,severe,fatal,no,---,NR,no,NR,21
+12,19-06-2013,02-05-2013,45,m,KSA,NR,Al Hasa,Al Hasa,no,KSA,severe,in hospital,no,---,NR,yes,no,21
+12,19-06-2013,04-05-2013,81,m,KSA,NR,Al Hasa,Al Hasa,no,KSA,severe,in hospital,no,---,NR,no,yes,21
+12,19-06-2013,05-05-2013,56,m,KSA,NR,Al Hasa,Al Hasa,no,KSA,mild?,recovered,no,---,NR,no,yes,21
+12,19-06-2013,05-05-2013,69,f,KSA,NR,Al Hasa,Al Hasa,no,KSA,severe,fatal,no,---,NR,no,NR,21
+12,19-06-2013,06-05-2013,48,m,KSA,NR,Al Hasa,Al Hasa,no,KSA,severe,in hospital,no,---,NR,no,yes,21
+12,19-06-2013,08-05-2013,42,f,KSA,NR,Al Hasa,Al Hasa,no,KSA,mild?,recovered,no,---,NR,yes,yes,21
+12,19-06-2013,12-05-2013,56,m,KSA,NR,Al Hasa,Al Hasa,no,KSA,severe,fatal,no,---,NR,no,yes,21
+12,04-06-2013,27-05-2013,83,m,KSA,NR,Al Ahsa,Al Ahsa,no,KSA,severe,fatal,no,,NR,no,yes,14
+13,09-05-2013,22-04-2013,64,m,France,NR,North France,Dubai,yes,France,severe,fatal,yes,Dubai 9- 17 4/13,NR,no,yes,"5, 14"
+13,12-05-2013,08-05-2013,51,m,France,NR(assume french),North France,North France,no,France,severe,in hospital,no,--,no,no,yes,"5, 14"
+14,14-05-2013,25-04-2013,69,f,KSA,KSA,eastern KSA,eastern KSA,no,KSA,severe,fatal,no,--,NR,no,yes,14
+16,22-05-2013,NR,34,m,Tunisia,Tunisia,Monastir,Monastir,no,none,mild,recovered,No,--,NR,no,NR,14
+16,22-05-2013,NR,35,f,Tunisia,Qatar,Monastir,Monastir,no,none,mild,recovered,Yes,NR,NR,no,NR,14
+17,22-05-2013,NR,NR,m,KSA,non-KSA,Al-Qaseem,Al-Qaseem,no,KSA,severe,fatal,NR,--,NR,NR,NR,14
+18,28-05-2013,12-05-2013,56,m,KSA,NR,eastern KSA,eastern KSA,no,KSA,severe,fatal,NR,--,NR,no,yes,14
+18,28-05-2013,17-05-2013,85,f,KSA,NR,eastern KSA,eastern KSA,no,KSA,severe,in hospital,NR,--,NR,no,yes,14
+18,28-05-2013,18-05-2013,73,m,KSA,NR,eastern KSA,eastern KSA,no,KSA,severe,fatal,NR,--,NR,no,yes,14
+18,28-05-2013,19-05-2013,77,m,KSA,NR,eastern KSA,eastern KSA,no,KSA,severe,fatal,NR,--,NR,no,yes,14
+18,28-05-2013,24-05-2013,76,f,KSA,NR,eastern KSA,eastern KSA,no,KSA,NR,recovered,NR,--,NR,no,yes,14
+19,02-06-2013,NR,2,f,Italy,Italy,Florence,Italy,no,Italy,mild,NR,no,--,no,no,NR,14
+19,02-06-2013,NR,42,f,Italy,Italy,Florence,Italy,no,Italy,mild,NR,no,--,no,no,NR,14
+19,01-06-2013,NR,45,m,Italy,Italy,Florence,Jordan,yes,Italy,severe,in hospital,yes,Jordan 40 days,NR,no,NR,14
+20,05-06-2013,29-05-2013,14,f,KSA,KSA,eastern KSA,KSA,no,KSA,NR,NR,no,--,NR,no,yes,14
+21,12-06-2013,NR,21,m,KSA,resident of KSA,Hafr Al Batin,eastern KSA,no,KSA,severe,fatal,no,--,NR,no,NR,"14, 24"
+22,12-06-2013,NR,63,f,KSA,KSA,KSA,eastern KSA,no,KSA,NR,in hospital,no,--,NR,no,yes,"14, 24"
+23,14-06-2013,NR,65,NR,KSA,KSA,Taif,Taif,no,KSA,severe,in hospital,no,--,NR,no,yes,"14, 24"
+24,14-06-2013,NR,68,f,KSA,KSA,Taif,Taif,no,KSA,severe,in hospital,no,--,NR,no,yes,"14, 24"
+25,14-06-2013,NR,46,m,KSA,NR,Wadi Al- Dawaser,Wadi Al- Dawaser,no,KSA,severe,fatal,no,--,NR,no,NR,"14, 24"
+26,16-06-2013,NR,2,NR,KSA,KSA,Jeddah,KSA,no,KSA,severe,in hospital,no,--,NR,no,yes,"14, 24"
+27,16-06-2013,NR,42,NR,KSA,KSA,eastern KSA,KSA,no,KSA,NR,in hospital,no,--,NR,no,yes,"14, 24"
+28,16-06-2013,NR,63,f,KSA,KSA,Riyadh,KSA,no,KSA,NR,in hospital,no,--,NR,no,yes,"14, 24"
+29,22-06-2013,NR,43,f,KSA,NR,Eastern Province,eastern KSA,no,KSA,NR,recovered,no,--,NR,NR,no,"14, 24"
+30,22-06-2013,NR,29,f,KSA,NR,Taif,Taif,no,KSA,NR,recovered,no,--,NR,NR,yes,"14, 24"
+30,22-06-2013,NR,39,f,KSA,NR,Taif,Taif,no,KSA,asympto matic,recovered,no,--,NR,NR,yes,"14, 24"
+30,22-06-2013,NR,45,f,KSA,NR,Taif,Taif,no,KSA,asympto matic,recovered,no,--,NR,NR,yes,"14, 24"
+8,23-06-2013,NR,41,f,KSA,NR,Riyadh,Riyadh,no,KSA,NR,NR,no,--,NR,NR,no,"14, 24"
+31,23-06-2013,NR,32,m,KSA,NR,Eastern Province,eastern KSA,no,KSA,severe,in hospital,no,--,NR,NR,no,"14, 24"
+8,26-06-2013,NR,7-15,NR,KSA,NR,Riyadh,KSA,no,KSA,asympto matic,recovered,no,--,NR,no,no,"14, 24"
+8,26-06-2013,NR,7-15,NR,KSA,NR,Riyadh,KSA,no,KSA,asympto matic,recovered,no,--,NR,no,no,"14, 24"
+8,26-06-2013,NR,7-15,NR,KSA,NR,Riyadh,KSA,no,KSA,asympto matic,recovered,no,--,NR,no,no,"14, 24"
+8,26-06-2013,NR,7-15,NR,KSA,NR,Riyadh,KSA,no,KSA,asympto matic,recovered,no,--,NR,no,no,"14, 24"
+32,26-06-2013,NR,NR,f,KSA,NR,Eastern Province,KSA,no,KSA,asympto matic,recovered,no,--,NR,no,yes,"14, 24"
+33,26-06-2013,NR,NR,f,KSA,NR,Al Hasa,KSA,no,KSA,asympto matic,recovered,no,--,NR,no,yes,"14, 24"
+34,26-06-2013,NR,50,f,KSA,KSA,Eastern Province,KSA,no,KSA,NR,in hospital,no,--,NR,no,no,"14, 24"
+35,05-07-2013,NR,69,m,KSA,KSA,Riyadh,KSA,no,KSA,severe,in hospital,no,--,NR,no,no,"14, 24"
+36,05-07-2013,NR,66,m,KSA,KSA,Riyadh,KSA,no,KSA,severe,in hospital,no,--,NR,no,no,"14, 24"
+?,07-07-2013,NR,56,f,KSA,NR,Eastern Province,KSA,no,KSA,NR,recovered,no,--,NR,NR,yes,"14, 24"
+37,11-07-2013,NR,66,m,KSA,KSA,Asir,KSA,no,KSA,severe,in hospital,no,--,NR,no,no,"14, 24"
+38,13-07-2013,06-07-2013,82,m,UAE,UAE,"Silaa, Abu Dhabi",UAE,no,UAE,severe,in hospital,no,--,NR,NR,no,"14, 24"
+37,18-07-2013,NR,26,m,KSA,KSA,Asir,KSA,no,KSA,mild,recovered,no,--,NR,no,no,"14, 24"
+37,18-07-2013,NR,42,f,KSA,KSA,Asir,KSA,no,KSA,mild,recovered,no,--,NR,no,yes,"14, 24"
+38,18-07-2013,NR,28,m,UAE,UAE,Abu Dhabi,UAE,no,UAE,mild,recovered,NR,--,NR,no,yes,14
+38,18-07-2013,NR,30,f,UAE,UAE,Abu Dhabi,UAE,no,UAE,mild,recovered,NR,--,NR,no,yes,14
+38,18-07-2013,NR,30,f,UAE,UAE,Abu Dhabi,UAE,no,UAE,mild,recovered,NR,--,NR,no,yes,14
+38,18-07-2013,NR,40,f,UAE,UAE,Abu Dhabi,UAE,no,UAE,mild,recovered,NR,--,NR,no,yes,14
+39,21-07-2013,15-07-2013,41,m,KSA,KSA,Riyadh,KSA,no,KSA,severe,in hospital,no,--,no,no,no,"14, 24"
+40,21-07-2013,11-07-2013,59,f,KSA,KSA,Al Hasa,KSA,no,KSA,NR,NR,no,--,no,no,no,"14, 24"
+41,29-07-2013,17-07-2013,83,m,KSA,KSA,Asir,KSA,no,KSA,NR,in hospital,NR,--,NR,no,no,"14, 24"
+42,01-08-2013,25-07-2013,67,f,KSA,KSA,Riyadh,KSA,no,KSA,NR,in hospital,no,--,no,no,no,"14, 24"
+37,01-08-2013,NR,NR,f,KSA,KSA,Asir,KSA,no,KSA,mild,recovered,no,--,no,no,yes,"14, 24"
+8,01-08-2013,NR,NR,f,KSA,KSA,Riyadh,KSA,no,KSA,mild,recovered,no,--,no,no,yes,"14, 24"
+16*,22-05-2013,01-05-2013,66,m,Tunisia,Tunisia,Taif,Monastir,yes,tunisia,severe,fatal,yes,Qatar & KSA several weeks,NR,NR,no,22
+4*,30-11-2012,30-03-2012,30,m,Jordan,Jordan,Zarqa,Zarqa,no,Jordan,mild,recovered,no,--,no,no,yes,6
+4*,30-11-2012,02-04-2012,60,m,Jordan,Jordan,Zarqa,Zarqa,no,Jordan,mild,recovered,no,--,no,no,yes,6
+4*,30-11-2012,11-04-2012,29,m,Jordan,Jordan,Zarqa,Zarqa,no,Jordan,mild,recovered,no,--,no,no,yes,6
+4*,30-11-2012,12-04-2012,33,m,Jordan,Jordan,Zarqa,Zarqa,no,Jordan,mild,recovered,no,--,no,no,yes,6
+4*,30-11-2012,13-04-2012,28,m,Jordan,Jordan,Zarqa,Zarqa,no,Jordan,mild,recovered,no,--,no,no,yes,6
+4*,30-11-2012,14-04-2012,45,m,Jordan,Jordan,Zarqa,Zarqa,no,Jordan,mild,recovered,no,--,no,no,no,6
+4*,30-11-2012,15-04-2012,46,m,Jordan,Jordan,Zarqa,Zarqa,no,Jordan,mild,recovered,no,--,no,no,yes,6
+4*,30-11-2012,15-04-2012,25,m,Jordan,Jordan,Zarqa,Zarqa,no,Jordan,mild,recovered,no,--,no,no,yes,6
+4*,30-11-2012,18-04-2012,53,m,Jordan,Jordan,Zarqa,Zarqa,no,Jordan,mild,recovered,no,--,no,no,yes,6
+4*,30-11-2012,19-04-2012,28,f,Jordan,Jordan,Zarqa,Zarqa,no,Jordan,mild,recovered,no,--,no,no,yes,6
+4*,30-11-2012,26-04-2012,60,f,Jordan,Jordan,Zarqa,Zarqa,no,Jordan,mild,recovered,no,--,no,no,no,6
+2*,NR,03-11-2012,16,m,KSA,KSA,Riyadh,Riyadh,no,KSA,mild,recovered,NR,NR,NR,NR,no,8
+10*,NR,NR,NR,m,KSA,KSA,Riyadh,Riyadh,no,KSA,NR,NR,NR,NR,NR,NR,no,23
+12*,19-06-2013,11-04-2013,55,m,KSA,NR,Al Hasa,Al Hasa,no,KSA,severe,fatal,no,---,NR,NR,no,21
+12*,19-06-2013,08-04-2013,56,m,KSA,NR,Al Hasa,Al Hasa,no,KSA,severe,fatal,no,---,NR,NR,no,21
+10*,08-08-2013,13-02-2013,61,m,KSA,KSA,Riyadh,KSA,no,KSA,severe,fatal,no,--,yes,NR,no,23

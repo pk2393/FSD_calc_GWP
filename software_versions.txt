@@ -1,0 +1,15 @@
+Date generated: 2026-05-20
+R version: 4.5.2
+R platform: x86_64-pc-linux-gnu
+
+Directly used R packages:
+BayesianTools 0.1.8
+coda 0.19.4.1
+dplyr 1.1.4
+tidyr 1.3.1
+magrittr 2.0.3
+readr 2.1.5
+ggplot2 3.5.2
+patchwork 1.3.2
+nleqslv 3.3.5
+nloptr 2.2.1
