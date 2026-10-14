@@ -4,7 +4,7 @@ This repository contains supplementary materials including the R code and data u
 
 **Computing the final epidemic size distributions of a multi-type Galton--Watson process**
 
-submission to "Annals of Applied Statistics"
+submission to "Journal of Applied Probability"
 
 
 GitHub repository: https://github.com/pk2393/FSD_calc_GWP
