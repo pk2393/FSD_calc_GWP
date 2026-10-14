@@ -267,49 +267,103 @@ summary(out_dezs)
 # par 3  0.024 -0.021  1.000 -0.022
 # par 4  0.024  0.002 -0.022  1.000
 
-pdf("./results/SFig1_trace_plot.pdf", width = 8, height = 6) 
-plot(out_dezs)
+par_names <- c("log_r", "log_k", "logit_S", "logit_fracC")
+post_chains <- list()
+
+for (rr in seq_along(out_dezs)) {
+  raw_chains <- out_dezs[[rr]]$chain
+  
+  for (cc in seq_along(raw_chains)) {
+    mat <- as.matrix(raw_chains[[cc]])
+    
+    ## Discard initial state
+    mat <- mat[-1L, 1:4, drop = FALSE]
+    colnames(mat) <- par_names
+    
+    nm <- paste0("run", rr, "_internal", cc)
+    post_chains[[nm]] <- coda::mcmc(mat, start = 1001L, thin = 1L)
+  }
+}
+
+post_coda <- coda::mcmc.list(post_chains)
+full_mat <- do.call(rbind, lapply(post_chains, as.matrix))
+saveRDS(post_coda, "./results/posterior_chains.rds")
+
+## output summaries and diagnostics
+print(summary(post_coda))
+ess <- coda::effectiveSize(post_coda)
+gr <- coda::gelman.diag(post_coda, autoburnin = FALSE)
+# print(ess)
+# print(gr)
+# print(cor(full_mat))
+# > print(ess)
+# log_r       log_k     logit_S logit_fracC 
+# 765.2107    868.9346    759.1528    793.8884 
+# > print(gr)
+# Potential scale reduction factors:
+#   
+#   Point est. Upper C.I.
+# log_r             1.01       1.01
+# log_k             1.01       1.03
+# logit_S           1.02       1.03
+# logit_fracC       1.01       1.03
+# 
+# Multivariate psrf
+# 
+# 1.03
+# > print(cor(full_mat))
+# log_r        log_k     logit_S  logit_fracC
+# log_r        1.00000000 -0.041939946  0.02535417  0.016219369
+# log_k       -0.04193995  1.000000000 -0.02015713 -0.003337052
+# logit_S      0.02535417 -0.020157133  1.00000000 -0.017266793
+# logit_fracC  0.01621937 -0.003337052 -0.01726679  1.000000000
+
+write.csv(data.frame(parameter = par_names,
+                     ESS = unname(ess),
+                     Rhat = gr$psrf[, 1],
+                     Rhat_upper = gr$psrf[, 2]),
+          "./results/posterior_diagnostics.csv", row.names = FALSE)
+
+r_full     <- exp(full_mat[, 1])
+k_full     <- exp(full_mat[, 2])
+S_full     <- plogis(full_mat[, 3])
+fracC_full <- plogis(full_mat[, 4])
+
+natural_mat <- cbind(R = r_full, k = k_full, S = S_full, pi = fracC_full)
+parameter_summary <- t(apply(natural_mat, 2, quantile,
+                             probs = c(.025, .5, .975)))
+print(parameter_summary)
+# > print(parameter_summary)
+# 2.5%        50%     97.5%
+# R  0.569919709 0.77266479 1.0790005
+# k  0.104310617 0.30419923 1.1988240
+# S  0.893813205 0.99418597 0.9999895
+# pi 0.009225222 0.05029934 0.1424487
+write.csv(parameter_summary, "./results/posterior_parameter_summary.csv")
+
+
+### plots
+## Trace/density plots use the full, cleaned chains.
+pdf("./results/SFig1_trace_plot.pdf", width = 8, height = 6)
+plot(post_coda)
 dev.off()
 
-pdf("./results/SFig3_corrplot_posterior.pdf", width = 8, height = 6) 
-correlationPlot(out_dezs)
+pdf("./results/SFig3_corrplot_posterior.pdf", width = 8, height = 6)
+BayesianTools::correlationPlot(full_mat, thin = 1)
 dev.off()
 
-pdf("./results/SFig2_marginal_plot.pdf", width = 8, height = 6) 
-marginalPlot(out_dezs)
+## Preserve the original prior-versus-posterior marginal comparison.
+set.seed(124)
+prior_mat <- out_dezs[[1]]$setup$prior$sampler(10000)
+colnames(prior_mat) <- par_names
+pdf("./results/SFig2_marginal_plot.pdf", width = 8, height = 6)
+BayesianTools::marginalPlot(full_mat, prior = prior_mat, thin = 1)
 dev.off()
 
-post_coda <- getSample(out_dezs, coda = TRUE)
-coda::effectiveSize(post_coda)
-
-
-full_mat <- getSample(out_dezs, parametersOnly = TRUE) 
-
-r_full      <- exp(full_mat[,1])
-k_full      <- exp(full_mat[,2])
-S_full      <- plogis(full_mat[,3])
-fracC_full  <- plogis(full_mat[,4])
-
-quantile(r_full,    c(.025,.5,.975))
-quantile(k_full,    c(.025,.5,.975))
-quantile(S_full,    c(.025,.5,.975))
-quantile(fracC_full,c(.025,.5,.975))
-# > quantile(r_full,    c(.025,.5,.975))
-# 2.5%       50%     97.5% 
-# 0.5689064 0.7726648 1.0793420 
-# > quantile(k_full,    c(.025,.5,.975))
-# 2.5%       50%     97.5% 
-# 0.1043298 0.3041992 1.2043082 
-# > quantile(S_full,    c(.025,.5,.975))
-# 2.5%       50%     97.5% 
-# 0.8930046 0.9941772 0.9999895 
-# > quantile(fracC_full,c(.025,.5,.975))
-# 2.5%         50%       97.5% 
-# 0.009132763 0.050299345 0.143320136 
-
-
-last_mat <- getSample(out_dezs, parametersOnly = TRUE, numSamples = 1200)
-
+## retain 100 entire rows per internal chain.
+last_mat <- do.call(rbind, lapply(post_chains, function(x) {
+  as.matrix(x)[seq.int(10L, 1000L, by = 10L), , drop = FALSE]
+}))
 post_draws <- as.data.frame(last_mat)
-colnames(post_draws) <- c("log_r", "log_k", "logit_S", "logit_fracC")
+colnames(post_draws) <- par_names
 readr::write_csv(post_draws, "./results/posterior_draws.csv")
