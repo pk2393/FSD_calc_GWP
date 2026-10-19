@@ -25,93 +25,18 @@ lg_cache <- function(rad, N, R, p_list, k) {
   )
 }
 
-core_detJ_abs <- function(x, rad0, R, p_list, k, tol_denom = 1e-5) {
-  rad <- x[1] * rad0
-  h1 <- rad[1] * exp(1i * x[2])
-  h2 <- rad[2] * exp(1i * x[3])
-  
-  denom_1 <- 1 + (R[1] / k) * (1 - p_list[[1]][1] * h1 - p_list[[1]][2] * h2)
-  denom_2 <- 1 + (R[2] / k) * (1 - p_list[[2]][1] * h1 - p_list[[2]][2] * h2)
-  
-  if (!is.finite(Mod(denom_1)) || !is.finite(Mod(denom_2))) return(0)
-  if (Mod(denom_1) < tol_denom || Mod(denom_2) < tol_denom) return(0)
-  
-  a11 <- 1 - (R[1] * p_list[[1]][1] * h1) / denom_1
-  a12 <-   - (R[1] * p_list[[1]][2] * h1) / denom_1
-  a21 <-   - (R[2] * p_list[[2]][1] * h2) / denom_2
-  a22 <- 1 - (R[2] * p_list[[2]][2] * h2) / denom_2
-  
-  out <- Mod(a11 * a22 - a12 * a21)
-  if (!is.finite(out)) return(0)
-  out
-}
-
-min_core_detJ_on_contour <- function(rad0, R, p_list, k,
-                                     init = c(1e-1, pi, pi),
-                                     maxeval = 2000,
-                                     tol_denom = 1e-5) {
-  f <- function(x) {
-    core_detJ_abs(x, rad0, R, p_list, k, tol_denom = tol_denom)
-  }
-  
-  res <- nloptr::nloptr(
-    x0 = init,
-    eval_f = f,
-    lb = c(1e-2, 0, 0),
-    ub = c(1, 2 * pi, 2 * pi),
-    opts = list(
-      algorithm = "NLOPT_GN_DIRECT_L",
-      maxeval = maxeval,
-      print_level = 0
-    )
-  )
-  
-  list(
-    min_abs_detJ = res$objective,
-    theta = res$solution,
-    status = res$status
-  )
-}
-
-tune_rad_by_core_detJ <- function(rad0, R, p_list, k,
-                                  tol = 1e-2,
-                                  shrink = 0.95,
-                                  max_iter = 20,
-                                  tol_denom = 1e-5) {
-  rad <- rad0
-  
-  for (it in 1:max_iter) {
-    ans <- min_core_detJ_on_contour(
-      rad0 = rad,
-      R = R,
-      p_list = p_list,
-      k = k,
-      init = c(1e-1, pi, pi),
-      maxeval = 2000,
-      tol_denom = tol_denom
-    )
-    
-    if (ans$min_abs_detJ > tol) {
-      return(list(ok = TRUE, rad = rad, iter = it, check = ans))
-    }
-    
-    rad <- shrink * rad
-  }
-  
-  list(ok = FALSE, rad = rad, iter = max_iter, check = ans)
-}
 
 precompute_pows <- function(base_mat, dmax) {
   N <- nrow(base_mat)
   out <- vector("list", dmax + 1L)
   out[[1]] <- matrix(1+0i, nrow = N, ncol = N)
-  
+
   if (dmax >= 1L) {
     for (e in 1:dmax) {
       out[[e + 1L]] <- out[[e]] * base_mat
     }
   }
-  
+
   out
 }
 
@@ -150,23 +75,14 @@ run_scenario_LG <- function(rho, r1, p11, p22, k = 1,
                             dmaxs = c(5, 10, 20),
                             eps_rad = 1e-2,
                             rad_cap = 0.95) {
+  
   ngm <- make_ngm(rho = rho, r1 = r1, p11 = p11, p22 = p22)
   pars <- offspring_params(ngm)
   R <- pars$R
   p_list <- pars$p_list
   Q <- extinction_prob(R = R, p_list = p_list, k = k)
   
-  rad0 <- pmin(Q * (1 - eps_rad), rad_cap)
-  adj <- tune_rad_by_core_detJ(
-    rad0 = rad0,
-    R = R,
-    p_list = p_list,
-    k = k,
-    tol = 1e-2,
-    shrink = 0.9,
-    max_iter = 20
-  )
-  rad <- adj$rad
+  rad <- pmin(Q * (1 - eps_rad), rad_cap)
   N <- pick_fft_N(max(dmaxs))
   cache <- lg_cache(rad = rad, N = N, R = R, p_list = p_list, k = k)
   
@@ -192,8 +108,7 @@ run_scenario_LG <- function(rho, r1, p11, p22, k = 1,
     p_list = p_list,
     Q = Q,
     rad = rad,
-    tables = out_tables,
-    rad_check = adj
+    tables = out_tables
   )
 }
 
