@@ -46,6 +46,7 @@ n_known_child_index = sum(df_summ$index_category == "child")
 n_known_adult_index = sum(df_summ$index_category == "adult")
 
 
+
 loglik_2G = function(par){
 
   r <- exp(par[1])
@@ -170,7 +171,7 @@ loglik_2G = function(par){
       
       p_tmp <- 0
       
-      for (j in 0 : idx){
+      for (j in 0 : (idx-1)){
         p_tmp <- p_tmp + 
           fracC * coef_nm(1, nC_obs + j, nA_obs + (idx-j), tables)  + 
           (1 - fracC) * coef_nm(2, nC_obs + j, nA_obs + (idx-j), tables) 
@@ -245,27 +246,27 @@ summary(out_dezs)
 # # MCMC sampler:  DEzs 
 # # Nr. Chains:  12 
 # # Iterations per chain:  1001 
-# # Rejection rate:  0.735 
-# # Effective sample size:  840 
-# # Runtime:  1453.703  sec. 
+# # Rejection rate:  0.74 
+# # Effective sample size:  836 
+# # Runtime:  1507.588  sec. 
 # 
 # # Parameters
 # psf    MAP   2.5% median  97.5%
-#   par 1 1.008 -0.272 -0.564 -0.258  0.076
-# par 2 1.007 -1.154 -2.260 -1.190  0.186
-# par 3 1.033  3.952  2.122  5.140 11.465
-# par 4 1.011 -2.706 -4.687 -2.938 -1.788
+#   par 1 1.022 -0.283 -0.564 -0.264  0.056
+# par 2 1.037 -1.264 -2.287 -1.200  0.365
+# par 3 1.032  4.500  2.109  5.581 12.203
+# par 4 1.007 -2.948 -4.766 -2.994 -1.864
 # 
 # ## DIC:  Inf 
 # ## Convergence 
-# Gelman Rubin multivariate psrf:  1.036 
+# Gelman Rubin multivariate psrf:  1.053 
 # 
 # ## Correlations 
 # par 1  par 2  par 3  par 4
-# par 1  1.000 -0.050  0.024  0.024
-# par 2 -0.050  1.000 -0.021  0.002
-# par 3  0.024 -0.021  1.000 -0.022
-# par 4  0.024  0.002 -0.022  1.000
+# par 1  1.000 -0.037 -0.022  0.023
+# par 2 -0.037  1.000  0.024 -0.021
+# par 3 -0.022  0.024  1.000 -0.004
+# par 4  0.023 -0.021 -0.004  1.000
 
 par_names <- c("log_r", "log_k", "logit_S", "logit_fracC")
 post_chains <- list()
@@ -293,30 +294,22 @@ saveRDS(post_coda, "./results/posterior_chains.rds")
 print(summary(post_coda))
 ess <- coda::effectiveSize(post_coda)
 gr <- coda::gelman.diag(post_coda, autoburnin = FALSE)
-# print(ess)
-# print(gr)
-# print(cor(full_mat))
+
 # > print(ess)
 # log_r       log_k     logit_S logit_fracC 
-# 765.2107    868.9346    759.1528    793.8884 
+# 816.8444    719.0928    748.9940    879.5650 
 # > print(gr)
 # Potential scale reduction factors:
 #   
 #   Point est. Upper C.I.
-# log_r             1.01       1.01
-# log_k             1.01       1.03
+# log_r             1.01       1.02
+# log_k             1.01       1.02
 # logit_S           1.02       1.03
-# logit_fracC       1.01       1.03
+# logit_fracC       1.00       1.01
 # 
 # Multivariate psrf
 # 
-# 1.03
-# > print(cor(full_mat))
-# log_r        log_k     logit_S  logit_fracC
-# log_r        1.00000000 -0.041939946  0.02535417  0.016219369
-# log_k       -0.04193995  1.000000000 -0.02015713 -0.003337052
-# logit_S      0.02535417 -0.020157133  1.00000000 -0.017266793
-# logit_fracC  0.01621937 -0.003337052 -0.01726679  1.000000000
+# 1.02
 
 write.csv(data.frame(parameter = par_names,
                      ESS = unname(ess),
@@ -334,11 +327,11 @@ parameter_summary <- t(apply(natural_mat, 2, quantile,
                              probs = c(.025, .5, .975)))
 print(parameter_summary)
 # > print(parameter_summary)
-# 2.5%        50%     97.5%
-# R  0.569919709 0.77266479 1.0790005
-# k  0.104310617 0.30419923 1.1988240
-# S  0.893813205 0.99418597 0.9999895
-# pi 0.009225222 0.05029934 0.1424487
+# 2.5%       50%     97.5%
+# R  0.569432930 0.7682409 1.0540890
+# k  0.101593033 0.3012462 1.4300297
+# S  0.892904648 0.9962441 0.9999950
+# pi 0.008559069 0.0476779 0.1340242
 write.csv(parameter_summary, "./results/posterior_parameter_summary.csv")
 
 
